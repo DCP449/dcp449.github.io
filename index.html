@@ -955,8 +955,8 @@
       ctx.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
 
       const particleCount = Math.min(
-        80,
-        Math.max(36, Math.floor((width * height) / 24000))
+        120,
+        Math.max(36, Math.floor((width * height) / 18000))
       );
 
       particles = Array.from({ length: particleCount }, () => ({
@@ -964,7 +964,7 @@
         y: Math.random() * height,
         vx: (Math.random() - 0.5) * 0.28,
         vy: (Math.random() - 0.5) * 0.28,
-        radius: Math.random() * 1.5 + 0.7,
+        radius: Math.random() * 2 + 1.5,
         color: Math.random() > 0.5 ? '255,55,55' : '255,120,120'
       }));
     }
