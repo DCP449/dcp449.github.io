@@ -964,16 +964,16 @@
         y: Math.random() * height,
         vx: (Math.random() - 0.5) * 0.28,
         vy: (Math.random() - 0.5) * 0.28,
-        radius: Math.random() * 3 + 2,
+        radius: Math.random() * 3 + 1.5,
         color: Math.random() > 0.5 ? '255,55,55' : '255,120,120'
       }));
     }
 
     function drawParticle(particle) {
       ctx.beginPath();
-      ctx.fillStyle = `rgba(${particle.color}, .78)`;
+      ctx.fillStyle = `rgba(${particle.color}, 1)`;
       ctx.shadowBlur = 10;
-      ctx.shadowColor = `rgba(${particle.color}, .48)`;
+      ctx.shadowColor = `rgba(${particle.color}, .85)`;
       ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
       ctx.fill();
       ctx.shadowBlur = 0;
