@@ -964,21 +964,31 @@
         y: Math.random() * height,
         vx: (Math.random() - 0.5) * 0.28,
         vy: (Math.random() - 0.5) * 0.28,
-        radius: Math.random() * 3 + 1.5,
+        radius: Math.random() * 2 + 1.5,
         color: Math.random() > 0.5 ? '255,55,55' : '255,120,120'
       }));
     }
 
     function drawParticle(particle) {
-      ctx.beginPath();
-      ctx.fillStyle = `rgba(${particle.color}, 1)`;
-      ctx.shadowBlur = 10;
-      ctx.shadowColor = `rgba(${particle.color}, .85)`;
-      ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.shadowBlur = 0;
-    }
+  ctx.beginPath();
 
+  /* Bright, solid neon-red dot */
+  ctx.fillStyle = 'rgba(255, 35, 55, 1)';
+
+  /* Red glow around each dot */
+  ctx.shadowColor = 'rgba(255, 0, 45, 1)';
+  ctx.shadowBlur = 35;
+  ctx.shadowOffsetX = 0;
+  ctx.shadowOffsetY = 0;
+
+  ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
+  ctx.fill();
+
+  /* Reset glow so it does not affect connection lines */
+  ctx.shadowBlur = 0;
+  ctx.shadowColor = 'transparent';
+}
+    
     function connectParticles() {
       const maxDistance = 145;
 
