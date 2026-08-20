@@ -961,11 +961,11 @@
 
       particles = Array.from({ length: particleCount }, () => ({
         x: Math.random() * width,
-        y: Math.random() * Math.min(height * 0.6, 560),
+        y: Math.random() * height,
         vx: (Math.random() - 0.5) * 0.28,
         vy: (Math.random() - 0.5) * 0.28,
         radius: Math.random() * 1.5 + 0.7,
-        color: Math.random() > 0.5 ? '94,234,255' : '116,255,178'
+        color: Math.random() > 0.5 ? '255,55,55' : '255,120,120'
       }));
     }
 
@@ -1037,7 +1037,7 @@
           particle.vx *= -1;
         }
 
-        if (particle.y < -10 || particle.y > height * 0.62) {
+        if (particle.y < -10 || particle.y > height + 10) {
           particle.vy *= -1;
         }
 
